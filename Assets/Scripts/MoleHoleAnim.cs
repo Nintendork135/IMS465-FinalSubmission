@@ -15,14 +15,19 @@ public class MoleHoleAnim : MonoBehaviour
         this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("GPOMSGOSEAMGOAEGMAEPOGMAEGOAMG");
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
     
     public void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("MOLES");
         if (other.gameObject.tag == "Enemy")
         {
             this.gameObject.transform.GetChild(0).gameObject.SetActive(true);

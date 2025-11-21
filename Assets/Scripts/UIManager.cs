@@ -12,6 +12,9 @@ public class UIManager : MonoBehaviour
     private GameManager GM;
     private BrambleMovement B;
     public Text scoreDisplay;
+    [SerializeField] private Image keyStatus;
+    [SerializeField] private Sprite noKey;
+    [SerializeField] private Sprite yesKey;
     void Start()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -22,6 +25,14 @@ public class UIManager : MonoBehaviour
     {
         if (B == null)
             B = GameObject.FindWithTag("Player").GetComponent<BrambleMovement>();
+
+        if(B.hasKey)
+        {
+            keyStatus.sprite = yesKey;
+        } else
+        {
+            keyStatus.sprite = noKey;
+        }
     }
 
     public void UpdateScore()
@@ -32,6 +43,11 @@ public class UIManager : MonoBehaviour
     public void UpdateLives(int currentLives) //formal parameter
     {
         lifeDisplay.sprite = lifeImages[currentLives];
+    }
+
+    public void UpdateKey()
+    {
+        
     }
     public void ShowTitleScreen()
     {
